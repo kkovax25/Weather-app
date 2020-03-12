@@ -1,0 +1,15 @@
+@import '../../SassVariables/variables';
+
+
+.header_cont{
+  height: 200px;
+  text-align: center;
+  .header_title {
+    font-size: 70px;
+  }
+  .header_icon {
+    height: 80px;
+    text-align: center;
+  }
+  @include spin(header_icon);
+}
