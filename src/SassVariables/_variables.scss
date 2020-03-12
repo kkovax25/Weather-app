@@ -15,3 +15,8 @@ $border: 1px solid black;
   }
 }
 }
+
+@mixin margpad($margin, $padding) {
+  margin: $margin;
+  padding: $padding
+}
