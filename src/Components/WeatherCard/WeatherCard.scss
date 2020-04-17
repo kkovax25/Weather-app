@@ -2,7 +2,7 @@
 
 .weather-card {
   width: 300px;
-  height: 550px;
+  height: auto;
   border-radius: 10px;
   margin: 40px auto;
   box-shadow: 10px 10px 15px 0px rgba(0, 0, 0, 0.37);
@@ -40,15 +40,17 @@
 
   .weather-card-hourly {
     height: 90px;
+    text-align: center;
     &::-webkit-scrollbar {
       display: none;
     }
     overflow: auto;
-    img{
+    &__img{
+      // padding-left: 3px; 
       height: 35px;
     }
-    .test{
-      .testtd{
+    &__degree{
+      &__data{
         padding-left: 7px;
         text-align: center
       }

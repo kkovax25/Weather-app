@@ -1,12 +1,58 @@
 import React, { Component } from 'react';
 import './WeatherCard.scss';
+import DailyTable from '../DailyTable/DailyTable';
 
 class WeatherCard extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      current: '',
+      hourly: [],
+      daily: [],
+    };
+  }
+
+  componentDidMount = async () => {
+    const url =
+      'https://api.openweathermap.org/data/2.5/onecall?lat=47.5&lon=19.04&units=metric&appid=aa9bd3ee50ab41fefb2d992915c5aac5';
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json'
+      }
+    });
+    const data = await response.json();
+    this.setState({ current: data.current.temp, daily: data.daily, hourly: data.hourly });
+  };
+
+  unixConverter = unixDay => {
+    const unixTimestamp = unixDay;
+    const milliseconds = unixTimestamp * 1000;
+    const dateObject = new Date(milliseconds);
+    return dateObject.toLocaleString('en-US', { weekday: 'long' });
+    // console.log(dateObject);
+    // console.log(dateObject.toLocaleString('hu-HU', { timeZoneName: 'short' }));
+    // console.log(dateObject.toLocaleString('en-US', { weekday: 'long' }));
+    // console.log(
+    //   dateObject.toLocaleString('hu-HU', {
+    //     hour: 'numeric',
+    //     minute: 'numeric',
+    //     second: 'numeric'
+    //   })
+    // );
+  };
+
+  unixConverterHour = unixHour => {
+    const unixTimestamp = unixHour;
+    const milliseconds = unixTimestamp * 1000;
+    const dateObject = new Date(milliseconds);
+    return dateObject.toLocaleString('hu-HU', { hour: 'numeric' });
+  };
   render() {
     return (
       <div className='weather-card'>
         <div className='weather-card-header'>
-          <h1 className='weather-card-header__temperature'>21°C</h1>
+          <h1 className='weather-card-header__temperature'>{Math.round(this.state.current) +'°C'}</h1>
           <p className='weather-card-header__location'>Budapest</p>
         </div>
         <img src='/img/sun.png' alt='sun' className='weather-card__sun' />
@@ -17,60 +63,31 @@ class WeatherCard extends Component {
         />
         <div className='weather-card-hourly'>
           <table>
-          <thead>
+            <thead>
               <tr>
-                <th>Now</th>
-                <th>17</th>
-                <th>18</th>
-                <th>18</th>
-                <th>18</th>
-                <th>18</th>
-                <th>18</th>
-                <th>18</th>
-                <th>18</th>
-                <th>18</th>
-                <th>18</th>
-                <th>18</th>
-                <th>18</th>
-                <th>18</th>
-                <th>18</th>
+                {this.state.hourly.slice(0, 15).map(hourly => (
+                  <th>{this.unixConverterHour(hourly.dt)}</th>
+                ))}
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td><img src="/img/cloud.png" alt="cloud"/></td>
-                <td><img src="/img/cloud.png" alt="cloud"/></td>
-                <td><img src="/img/cloud.png" alt="cloud"/></td>
-                <td><img src="/img/cloud.png" alt="cloud"/></td>
-                <td><img src="/img/cloud.png" alt="cloud"/></td>
-                <td><img src="/img/cloud.png" alt="cloud"/></td>
-                <td><img src="/img/cloud.png" alt="cloud"/></td>
-                <td><img src="/img/cloud.png" alt="cloud"/></td>
-                <td><img src="/img/cloud.png" alt="cloud"/></td>
-                <td><img src="/img/cloud.png" alt="cloud"/></td>
-                <td><img src="/img/cloud.png" alt="cloud"/></td>
-                <td><img src="/img/cloud.png" alt="cloud"/></td>
-                <td><img src="/img/cloud.png" alt="cloud"/></td>
-                <td><img src="/img/cloud.png" alt="cloud"/></td>
-                <td><img src="/img/cloud.png" alt="cloud"/></td>
+                {this.state.hourly.slice(0, 15).map(hourly => (
+                  <td>
+                    <img
+                      className='weather-card-hourly__img'
+                      src={`http://openweathermap.org/img/wn/${hourly.weather[0].icon}@2x.png`}
+                      alt='icon'
+                    />
+                  </td>
+                ))}
               </tr>
-              <tr className='test' >
-                <td className='testtd'>21°</td>
-                <td className='testtd'>2°</td>
-                <td className='testtd'>11°</td>
-                <td className='testtd'>27°</td>
-                <td className='testtd'>21°</td>
-                <td className='testtd'>21°</td>
-                <td className='testtd'>31°</td>
-                <td className='testtd'>21°</td>
-                <td className='testtd'>21°</td>
-                <td className='testtd'>21°</td>
-                <td className='testtd'>21°</td>
-                <td className='testtd'>21°</td>
-                <td className='testtd'>21°</td>
-                <td className='testtd'>21°</td>
-                <td className='testtd'>21°</td>
-                
+              <tr className='weather-card-hourly__degree'>
+                {this.state.hourly.slice(0, 15).map(degrees => (
+                  <td className='weather-card-hourly__degree__data'>
+                    {Math.round(degrees.temp) + '°'}
+                  </td>
+                ))}
               </tr>
             </tbody>
           </table>
@@ -80,41 +97,18 @@ class WeatherCard extends Component {
             <thead>
               <tr>
                 <th>Day</th>
-                <th>Min</th>
                 <th>Max</th>
+                <th>Min</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Thursday</td>
-                <td>10°C</td>
-                <td>30°C</td>
-              </tr>
-              <tr>
-                <td>Friday</td>
-                <td>10°C</td>
-                <td>30°C</td>
-              </tr>
-              <tr>
-                <td>Saturday</td>
-                <td>10°C</td>
-                <td>30°C</td>
-              </tr>
-              <tr>
-                <td>Sunday</td>
-                <td>10°C</td>
-                <td>30°C</td>
-              </tr>
-              <tr>
-                <td>Monday</td>
-                <td>10°C</td>
-                <td>30°C</td>
-              </tr>
-              <tr>
-                <td>Tuesday</td>
-                <td>10°C</td>
-                <td>30°C</td>
-              </tr>
+              {this.state.daily.map(data => (
+                <DailyTable
+                  day={this.unixConverter(data.dt)}
+                  maxC={Math.round(data.temp.max) + '°C'}
+                  minC={Math.round(data.temp.min) + '°C'}
+                />
+              ))}
             </tbody>
           </table>
         </div>
