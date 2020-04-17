@@ -1,22 +1,132 @@
 @import '../../SassVariables/variables';
 
+
+.asd{
+  margin: 20px 700px;
+}
 .weather-card {
   width: 300px;
   height: auto;
   border-radius: 10px;
   margin: 40px auto;
   box-shadow: 10px 10px 15px 0px rgba(0, 0, 0, 0.37);
-  background: linear-gradient(to bottom, #57c1eb 0%, #246fa8 100%);
   overflow: hidden;
   color: whitesmoke;
+  &__bg0{
+    background: $sky-gradient-00;
+    .weather-card__moon{
+      opacity: 0.8;
+    }
+  }
+  &__bg1{
+    background: $sky-gradient-01;
+    .weather-card__moon{
+      opacity: 0.7;
+    }
+  }
+  &__bg2{
+    background: $sky-gradient-02;
+    .weather-card__moon{
+      opacity: 0.6;
+    }
+  }
+  &__bg3{
+    background: $sky-gradient-03;
+    .weather-card__moon{
+      opacity: 0.5;
+    }
+  }
+  &__bg4{
+    background: $sky-gradient-04;
+    .weather-card__moon{
+      opacity: 0.4;
+    }
+  }
+  &__bg5{
+    background: $sky-gradient-05;
+    .weather-card__moon{
+      opacity: 0.3;
+    }
+  }
+  &__bg6,&__bg7{
+    background: $sky-gradient-06;
+    .weather-card{
+      &__moon{
+        display: none;
+      }
+        &__sun{
+          display: block;
+          opacity: 0.4
+        }
+    }
+
+  }
+  &__bg8, &__bg9, &__bg10, &__bg11, &__bg12{
+    background: $sky-gradient-12;
+    .weather-card__moon{
+      display: none;
+    }
+  }
+  &__bg13, &__bg14{
+    background: $sky-gradient-13;
+    .weather-card__moon{
+      display: none;
+    }  }
+  &__bg15, &__bg16, &__bg17{
+    background: $sky-gradient-14;
+    .weather-card__moon{
+      display: none;
+    }  }
+  &__bg18{
+    background: $test2;
+    .weather-card__moon{
+     opacity: 0.2;
+    }  }
+  &__bg19{
+    background: $test3;
+    .weather-card__moon{
+      opacity: 0.4;
+    }
+  }
+  &__bg20, &__bg21, &__bg22{
+    background: $testgradient;
+    .weather-card__moon{
+      opacity: 0.6;
+    }
+  }
+  &__bg22{
+    background: $sky-gradient-22;
+    .weather-card__moon{
+      opacity: 0.8;
+    }
+  }
+  &__bg23{
+    background: $sky-gradient-23;
+    .weather-card__moon{
+      opacity: 1;
+    }
+  }
+  &__bg24{
+    background: $sky-gradient-00;
+    .weather-card__moon{
+      opacity: 1;
+    }
+  }
 
   &__sun {
     height: 120px;
     width: auto;
     position: absolute;
     margin-left: 166px;
+    display: none;
   }
-
+  &__moon{
+    position: absolute;
+    display: block;
+    height: 100px;
+    margin-top: 15px;
+    margin-left: 195px;
+  }
   &__cloud {
     height: 100px;
     width: auto;
