@@ -1,0 +1,85 @@
+@import '../../SassVariables/variables';
+
+.weather-card {
+  width: 300px;
+  height: 550px;
+  border-radius: 10px;
+  margin: 40px auto;
+  box-shadow: 10px 10px 15px 0px rgba(0, 0, 0, 0.37);
+  background: linear-gradient(to bottom, #57c1eb 0%, #246fa8 100%);
+  overflow: hidden;
+  color: whitesmoke;
+
+  &__sun {
+    height: 120px;
+    width: auto;
+    position: absolute;
+    margin-left: 166px;
+  }
+
+  &__cloud {
+    height: 100px;
+    width: auto;
+    animation: cloudeMove 35s linear infinite;
+    margin-top: 120px;
+  }
+
+  .weather-card-header {
+    font-family: 'Heebo', sans-serif;
+    position: absolute;
+    margin: 20px 45px;
+    text-align: center;
+    &__temperature {
+      font-size: 55px;
+      height: 65px;
+    }
+    &__location {
+      font-size: 20px;
+    }
+  }
+
+  .weather-card-hourly {
+    height: 90px;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    overflow: auto;
+    img{
+      height: 35px;
+    }
+    .test{
+      .testtd{
+        padding-left: 7px;
+        text-align: center
+      }
+    }
+  }
+
+  .weather-card-daily {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    table,
+    th,
+    td {
+      padding: 4px 30px;
+      text-align: justify;
+    }
+
+    table {
+      border: 0;
+    }
+  }
+}
+
+@keyframes cloudeMove {
+  0% {
+    margin-left: -300px;
+    opacity: 1;
+  }
+  100% {
+    margin-left: 350px;
+    opacity: 0;
+  }
+}
