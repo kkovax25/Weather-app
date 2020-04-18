@@ -9,9 +9,8 @@ class WeatherCard extends Component {
       current: '',
       hourly: [],
       daily: [],
-      time: 17,
-      sec: new Date().toLocaleString('hu-HU', { second: 'numeric' })
-
+      // time: new Date().toLocaleString('hu-HU', { hour: 'numeric' }),
+      time: 17
     };
   }
   componentDidMount = async () => {
@@ -69,7 +68,6 @@ class WeatherCard extends Component {
       <div>
         <div className='asd'>
         <h1>{this.state.time}</h1>
-        <h2>{this.state.sec}</h2>
         <button onClick={this.counter}>timetest</button>
         </div>
         <div className='weather-card'>

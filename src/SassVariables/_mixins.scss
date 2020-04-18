@@ -1,0 +1,80 @@
+@mixin weatherCardBg {
+  &__bg0 {
+    background: $sky-gradient-00;
+  }
+  &__bg1 {
+    background: $sky-gradient-01;
+  }
+  &__bg2 {
+    background: $sky-gradient-02;
+  }
+  &__bg3 {
+    background: $sky-gradient-03;
+  }
+  &__bg4 {
+    background: $sky-gradient-04;
+  }
+  &__bg5 {
+    background: $sky-gradient-05;
+  }
+  &__bg6 {
+    background: $sky-gradient-06;
+  }
+  &__bg7{
+    background: $sky-gradient-07;
+  }
+  &__bg8{
+    background: $sky-gradient-08;
+  }
+  &__bg9{
+    background: $sky-gradient-09;
+  }
+  &__bg10{
+    background: $sky-gradient-10;
+  }
+  &__bg11{
+    background: $sky-gradient-11;
+  }
+ 
+  &__bg12 {
+    background: $sky-gradient-12;
+  }
+  &__bg13{
+    background: $sky-gradient-12;
+
+  }
+  &__bg14 {
+    background: $sky-gradient-12;
+  }
+  &__bg15{
+    background: $sky-gradient-15;
+  }
+  &__bg16{
+    background: $sky-gradient-16;
+  }
+ 
+  &__bg17 {
+    background: $lol;
+  }
+  &__bg18 {
+    background: $lol2;
+  }
+  &__bg19 {
+    background: $lol3;
+  }
+  &__bg20{
+    background: $sky-gradient-19;
+  }
+  &__bg21{
+    background: $sky-gradient-20;
+  }
+  &__bg22 {
+    background: $sky-gradient-22;
+  }
+  &__bg23 {
+    background: $sky-gradient-23;
+  }
+  &__bg24 {
+    background: $sky-gradient-00;
+  }
+}
