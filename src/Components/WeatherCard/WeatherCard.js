@@ -9,8 +9,7 @@ class WeatherCard extends Component {
       current: '',
       hourly: [],
       daily: [],
-      // time: new Date().toLocaleString('hu-HU', { hour: 'numeric' }),
-      time: 17
+      time: new Date().toLocaleString('hu-HU', { hour: 'numeric' }),
     };
   }
   componentDidMount = async () => {
@@ -47,15 +46,27 @@ class WeatherCard extends Component {
     // );
   };
 
-  counter = () => {
-    let counter = this.state.time
-    if (counter >= 24){
-      this.setState({time:0})
-    }else{
-      counter = counter + 1
-      this.setState({time:counter})
-    }
+  checker = () => {
+    setInterval(() => {
+      let counter = this.state.time;
+      if (counter >= 23) {
+        this.setState({ time: 0 });
+      } else {
+        counter = counter + 1;
+        this.setState({ time: counter });
+      }
+    }, 1000);
   };
+
+counter = ()=>{
+  let counter = this.state.time;
+      if (counter >= 23) {
+        this.setState({ time: 0 });
+      } else {
+        counter = counter + 1;
+        this.setState({ time: counter });
+      }
+}
 
   unixConverterHour = unixHour => {
     const unixTimestamp = unixHour;
@@ -67,8 +78,8 @@ class WeatherCard extends Component {
     return (
       <div>
         <div className='asd'>
-        <h1>{this.state.time}</h1>
-        <button onClick={this.counter}>timetest</button>
+          <h1>{this.state.time}</h1>
+          <button onClick={this.counter}>timetest</button>
         </div>
         <div className='weather-card'>
           <div className={`weather-card__bg${this.state.time}`}>
@@ -79,7 +90,11 @@ class WeatherCard extends Component {
               <p className='weather-card-header__location'>Budapest</p>
             </div>
             <img src='/img/sun.png' alt='sun' className='weather-card__sun' />
-            <img src="/img/moon.png" alt="moon" className='weather-card__moon'/>
+            <img
+              src='/img/moon.png'
+              alt='moon'
+              className='weather-card__moon'
+            />
             <img
               src='/img/cloud2.png'
               alt='cloud'
