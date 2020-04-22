@@ -83,15 +83,15 @@
   }
 
   &__bg17 {
-    background: $lol;
+    background: $sky-gradient-17;
     @include sunAndMoon(block, 0.2, none, null);
   }
   &__bg18 {
-    background: $lol2;
+    background: $sky-gradient-18;
     @include sunAndMoon(block, 0.1, none, null);
   }
   &__bg19 {
-    background: $lol3;
+    background: $sky-gradient-19;
     @include sunAndMoon(none, null, none, null);
   }
   &__bg20 {

@@ -2,7 +2,7 @@
 @import '../../SassVariables/mixins';
 
 .asd {
-  margin: 20px 700px;
+  margin: 20px 400px;
 }
 .weather-card {
   width: 300px;
@@ -18,7 +18,6 @@
     width: auto;
     position: absolute;
     margin-left: 166px;
-    // display: none;
   }
   &__moon {
     position: absolute;
@@ -44,6 +43,7 @@
       height: 65px;
     }
     &__location {
+      text-transform: capitalize;
       font-size: 20px;
     }
   }

@@ -10,11 +10,14 @@ class WeatherCard extends Component {
       hourly: [],
       daily: [],
       time: new Date().toLocaleString('hu-HU', { hour: 'numeric' }),
+      place: '',
+      lat: 48.85,
+      lon: 2.35
     };
   }
-  componentDidMount = async () => {
+  getCity = async () => {
     const url =
-      'https://api.openweathermap.org/data/2.5/onecall?lat=47.5&lon=19.04&units=metric&appid=aa9bd3ee50ab41fefb2d992915c5aac5';
+      `https://api.openweathermap.org/data/2.5/onecall?lat=${this.state.lat}&lon=${this.state.lon}&units=metric&appid=aa9bd3ee50ab41fefb2d992915c5aac5`;
     const response = await fetch(url, {
       method: 'GET',
       headers: {
@@ -27,6 +30,36 @@ class WeatherCard extends Component {
       daily: data.daily,
       hourly: data.hourly
     });
+  };
+
+  handleInput = event => {
+    this.setState({ place: event.target.value });
+    console.log(this.state.place);
+  };
+
+  handleSubmit = async (e) => {
+    e.preventDefault();
+   await this.searchCity();
+   await this.getCity();
+  };
+
+  searchCity = async () => {
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${this.state.place}&appid=aa9bd3ee50ab41fefb2d992915c5aac5&units=metric`;
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json'
+      }
+    });
+    const data = await response.json();
+    console.log(data);
+    
+    this.setState({
+      lat: data.coord.lat,
+      lon: data.coord.lon
+    });
+    console.log(this.state.lat);
+    console.log(this.state.lon);
   };
 
   unixConverter = unixDay => {
@@ -58,15 +91,15 @@ class WeatherCard extends Component {
     }, 1000);
   };
 
-counter = ()=>{
-  let counter = this.state.time;
-      if (counter >= 23) {
-        this.setState({ time: 0 });
-      } else {
-        counter = counter + 1;
-        this.setState({ time: counter });
-      }
-}
+  counter = () => {
+    let counter = this.state.time;
+    if (counter >= 23) {
+      this.setState({ time: 0 });
+    } else {
+      counter = counter + 1;
+      this.setState({ time: counter });
+    }
+  };
 
   unixConverterHour = unixHour => {
     const unixTimestamp = unixHour;
@@ -77,9 +110,15 @@ counter = ()=>{
   render() {
     return (
       <div>
-        <div className='asd'>
+        {/* <div className='asd'>
           <h1>{this.state.time}</h1>
           <button onClick={this.counter}>timetest</button>
+        </div> */}
+        <div className='asd'>
+          <input type='text' onChange={this.handleInput} />
+          <button type='submit' onClick={this.handleSubmit}>
+            Submit
+          </button>
         </div>
         <div className='weather-card'>
           <div className={`weather-card__bg${this.state.time}`}>
@@ -87,7 +126,9 @@ counter = ()=>{
               <h1 className='weather-card-header__temperature'>
                 {Math.round(this.state.current) + '°C'}
               </h1>
-              <p className='weather-card-header__location'>Budapest</p>
+              <p className='weather-card-header__location'>
+                {this.state.place}
+              </p>
             </div>
             <img src='/img/sun.png' alt='sun' className='weather-card__sun' />
             <img
