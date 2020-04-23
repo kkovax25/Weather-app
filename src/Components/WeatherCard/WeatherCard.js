@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './WeatherCard.scss';
 import DailyTable from '../DailyTable/DailyTable';
+import SearchBar from '../SearchBar/SearchBar';
 
 class WeatherCard extends Component {
   constructor(props) {
@@ -11,13 +12,13 @@ class WeatherCard extends Component {
       daily: [],
       time: new Date().toLocaleString('hu-HU', { hour: 'numeric' }),
       place: '',
-      lat: 48.85,
-      lon: 2.35
+      lat: '',
+      lon: '',
+      isLoaded : false,
     };
   }
   getCity = async () => {
-    const url =
-      `https://api.openweathermap.org/data/2.5/onecall?lat=${this.state.lat}&lon=${this.state.lon}&units=metric&appid=aa9bd3ee50ab41fefb2d992915c5aac5`;
+    const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${this.state.lat}&lon=${this.state.lon}&units=metric&appid=aa9bd3ee50ab41fefb2d992915c5aac5`;
     const response = await fetch(url, {
       method: 'GET',
       headers: {
@@ -37,10 +38,11 @@ class WeatherCard extends Component {
     console.log(this.state.place);
   };
 
-  handleSubmit = async (e) => {
+  handleSubmit = async e => {
     e.preventDefault();
-   await this.searchCity();
-   await this.getCity();
+    await this.searchCity();
+    await this.getCity();
+    this.setState({isLoaded: true})
   };
 
   searchCity = async () => {
@@ -53,7 +55,7 @@ class WeatherCard extends Component {
     });
     const data = await response.json();
     console.log(data);
-    
+
     this.setState({
       lat: data.coord.lat,
       lon: data.coord.lon
@@ -114,13 +116,8 @@ class WeatherCard extends Component {
           <h1>{this.state.time}</h1>
           <button onClick={this.counter}>timetest</button>
         </div> */}
-        <div className='asd'>
-          <input type='text' onChange={this.handleInput} />
-          <button type='submit' onClick={this.handleSubmit}>
-            Submit
-          </button>
-        </div>
-        <div className='weather-card'>
+        <SearchBar onChange={this.handleInput} onClick={this.handleSubmit}/>
+        <div className={this.state.isLoaded ? 'weather-card' : 'weather-card-hide'}>
           <div className={`weather-card__bg${this.state.time}`}>
             <div className='weather-card-header'>
               <h1 className='weather-card-header__temperature'>

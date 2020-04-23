@@ -1,14 +1,11 @@
 @import '../../SassVariables/variables';
 @import '../../SassVariables/mixins';
 
-.asd {
-  margin: 20px 400px;
-}
 .weather-card {
   width: 300px;
   height: auto;
   border-radius: 10px;
-  margin: 40px auto;
+  margin: 0px auto;
   box-shadow: 10px 10px 15px 0px rgba(0, 0, 0, 0.37);
   overflow: hidden;
   color: whitesmoke;
@@ -84,7 +81,9 @@
     }
   }
 }
-
+.weather-card-hide{
+  display: none;
+}
 @keyframes cloudeMove {
   0% {
     margin-left: -300px;

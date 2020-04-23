@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './NavBar.scss';
-import BigMac from './Burger';
+import BurgerMenu from './Burger';
 
 
 class NavBar extends Component {
@@ -18,7 +18,7 @@ class NavBar extends Component {
     return (
       <nav className='navbar'>
         <span className='navbar-toggle' onClick={this.toggleNavbar}>
-          <BigMac/>
+          <BurgerMenu/>
           {/* <div className={this.state.isActive ? 'nav-icon active' : 'nav-icon disabled'}>
             <div></div>
           </div> */}
@@ -27,7 +27,7 @@ class NavBar extends Component {
          <div className={this.state.isActive ? 'line3__active3' : 'line3'}></div> */}
         </span>
         <a href='#profile' className='logo'>
-          logo
+          Weather Forecast
         </a>
         <ul
           className={this.state.isActive ? 'main-nav active' : 'main-nav'}
@@ -51,11 +51,6 @@ class NavBar extends Component {
           <li>
             <a href='#profile' className='nav-links'>
               Contact Us
-            </a>
-          </li>
-          <li>
-            <a href='#profile' className='nav-links'>
-              Blog
             </a>
           </li>
         </ul>

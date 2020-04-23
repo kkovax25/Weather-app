@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Burger from 'react-css-burger';
 
-class BigMac extends Component {
+class BurgerMenu extends Component {
   state = {
     active: false,
   };
@@ -20,4 +20,4 @@ class BigMac extends Component {
   }
 }
 
-export default BigMac
+export default BurgerMenu

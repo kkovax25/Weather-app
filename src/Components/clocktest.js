@@ -4,7 +4,7 @@ class Clock extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      time: new Date().toLocaleString('hu-HU', { hour: 'numeric' })
+      time: ''
     };
   }
   componentDidMount() {    
@@ -23,8 +23,8 @@ class Clock extends Component {
   }
   render() {
     return (
-      <p className="App-clock">
-        The time is {this.state.time}.
+      <p className={this.props.className}>
+       {this.state.time}
       </p>
     );
   }
