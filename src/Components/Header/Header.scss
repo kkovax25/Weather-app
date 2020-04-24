@@ -1,20 +1,16 @@
-$border: 0px solid red;
-
+//Mobile
 .header-cont {
-  border: $border;
   position: relative;
-  height: 500px;
+  height: auto;
+  margin-top: 20px;
 
   &__title {
     position: absolute;
-    top: 60px;
-    left: 16px;
+    left: 0;
+    transition: left 0.3s;
     width: 350px;
-    // margin-left: 150px;
-    // margin-top: 50px;
     font-family: 'Oswald', sans-serif;
     color: white;
-    border: 5px solid white;
     opacity: 0.7;
 
     &__h1 {
@@ -28,23 +24,31 @@ $border: 0px solid red;
       line-height: 61.38px;
     }
   }
-  // &__description {
-  //   font-size: 24px;
-  //   font-weight: 400;
-  //   line-height: 21.59px;
-  // }
   &__picture {
     max-height: 100%;
     height: auto;
     max-width: 100%;
     width: auto;
     border-radius: 10px;
-    // opacity: 0.8;
-    // margin: 50px auto;
-    margin-top: 30px;
-    // margin-left: 300px;
-    // -webkit-box-shadow: 14px -7px 19px 3px rgba(0, 0, 0, 0.51);
+    -webkit-box-shadow: 14px -7px 19px 3px rgba(0, 0, 0, 0.51);
     -moz-box-shadow: 14px -7px 19px 3px rgba(0, 0, 0, 0.51);
     box-shadow: 14px -7px 19px 3px rgba(0, 0, 0, 0.51);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .header-cont {
+    height: 500px;
+    margin: 30px auto;
+    text-align: center;
+
+    &__title {
+      position: absolute;
+      top: 60px;
+      left: 140px;
+      width: 350px;
+      border: 5px solid white;
+      text-align: left;
+    }
   }
 }

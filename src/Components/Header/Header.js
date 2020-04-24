@@ -13,11 +13,6 @@ class Header extends Component {
             <br />
             Forecast
           </h1>
-          {/* <p className='header-cont__description'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.
-          </p> */}
         </div> 
         <img src='/img/header.jpg' alt='clouds' className='header-cont__picture'/>
       </div>

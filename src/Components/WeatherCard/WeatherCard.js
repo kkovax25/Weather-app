@@ -14,7 +14,7 @@ class WeatherCard extends Component {
       place: '',
       lat: '',
       lon: '',
-      isLoaded : false,
+      isLoaded: false
     };
   }
   getCity = async () => {
@@ -42,7 +42,7 @@ class WeatherCard extends Component {
     e.preventDefault();
     await this.searchCity();
     await this.getCity();
-    this.setState({isLoaded: true})
+    this.setState({ isLoaded: true });
   };
 
   searchCity = async () => {
@@ -111,13 +111,11 @@ class WeatherCard extends Component {
   };
   render() {
     return (
-      <div>
-        {/* <div className='asd'>
-          <h1>{this.state.time}</h1>
-          <button onClick={this.counter}>timetest</button>
-        </div> */}
-        <SearchBar onChange={this.handleInput} onClick={this.handleSubmit}/>
-        <div className={this.state.isLoaded ? 'weather-card' : 'weather-card-hide'}>
+      <div className='weather'>
+        <SearchBar onChange={this.handleInput} onClick={this.handleSubmit} />
+        <div
+          className={this.state.isLoaded ? 'weather-card' : 'weather-card-hide'}
+        >
           <div className={`weather-card__bg${this.state.time}`}>
             <div className='weather-card-header'>
               <h1 className='weather-card-header__temperature'>
