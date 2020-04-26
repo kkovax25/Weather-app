@@ -19,12 +19,6 @@ class NavBar extends Component {
       <nav className='navbar'>
         <span className='navbar-toggle' onClick={this.toggleNavbar}>
           <BurgerMenu/>
-          {/* <div className={this.state.isActive ? 'nav-icon active' : 'nav-icon disabled'}>
-            <div></div>
-          </div> */}
-          {/* <div className={this.state.isActive ? 'line1__active1' : 'line1'}></div>
-         <div className={this.state.isActive ? 'line2__active2' : 'line2'}></div>
-         <div className={this.state.isActive ? 'line3__active3' : 'line3'}></div> */}
         </span>
         <a href='#profile' className='logo'>
           Weather Forecast
