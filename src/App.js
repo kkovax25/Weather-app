@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
 import './App.scss';
-// import WeatherCard from './Components/WeatherCard/WeatherCard';
-import NavBar from './Components/NavBar/NavBar';
-import Header from './Components/Header/Header';
-import Body from './Components/Body/Body';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import DesktopPage from './Pages/DesktopPage';
+import LandingPage from './Pages/LandingPage';
 
 class App extends Component {
   render() {
     return (
-      <div className='main-container'>
-        <NavBar />
-        <Header />
-        <Body />
-      </div>
+      <Router>
+
+        <Route path='/' exact component={LandingPage}/>
+        <Route path='/desktop' exact component={DesktopPage}/>
+      </Router>
     );
   }
 }

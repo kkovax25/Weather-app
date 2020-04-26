@@ -33,7 +33,7 @@ class NavBar extends Component {
             </a>
           </li>
           <li>
-            <a href='#profile' className='nav-links'>
+            <a href='/desktop' className='nav-links'>
               Products
             </a>
           </li>
