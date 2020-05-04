@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './NavBar.scss';
 import BurgerMenu from './Burger';
 
-
 class NavBar extends Component {
   constructor(props) {
     super(props);
@@ -18,9 +17,9 @@ class NavBar extends Component {
     return (
       <nav className='navbar'>
         <span className='navbar-toggle' onClick={this.toggleNavbar}>
-          <BurgerMenu/>
+          <BurgerMenu />
         </span>
-        <a href='#profile' className='logo'>
+        <a href='/' className='logo'>
           Weather Forecast
         </a>
         <ul
@@ -28,22 +27,22 @@ class NavBar extends Component {
           id='js-menu'
         >
           <li>
-            <a href='#profile' className='nav-links'>
+            <a href='/' className='nav-links'>
               Home
             </a>
           </li>
           <li>
             <a href='/desktop' className='nav-links'>
-              Products
+              Desktop
             </a>
           </li>
           <li>
-            <a href='#profile' className='nav-links'>
-              About Us
+            <a href='/' className='nav-links'>
+              About me
             </a>
           </li>
           <li>
-            <a href='#profile' className='nav-links'>
+            <a href='/' className='nav-links'>
               Contact Us
             </a>
           </li>

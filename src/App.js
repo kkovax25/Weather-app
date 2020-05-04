@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.scss';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import DesktopPage from './Pages/DesktopPage';
-import LandingPage from './Pages/LandingPage';
+import DesktopPage from './Pages/DesktopPage/DesktopPage';
+import LandingPage from './Pages/LandingPage/LandingPage';
 
 class App extends Component {
   render() {

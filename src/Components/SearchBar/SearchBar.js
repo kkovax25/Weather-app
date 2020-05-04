@@ -4,7 +4,7 @@ import './SearchBar.scss';
 class SearchBar extends Component {
   render() {
     return (
-      <div className='flexer'>
+      <div className='searchbar-cont'>
         <div class='form__group field'>
           <input
             type='text'
@@ -16,11 +16,11 @@ class SearchBar extends Component {
             required
           />
           <label for='name' class='form__label'>
-            Name
+            {this.props.placeholder}
           </label>
         </div>
         <div className='submit' onClick={this.props.onClick}>
-          Show
+          {this.props.content}
         </div>
       </div>
     );

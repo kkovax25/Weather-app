@@ -1,0 +1,49 @@
+.body-desktop {
+  margin-top: 50px;
+  height: 350px;
+  &__text {
+    color: white;
+    opacity: 0.7;
+    width: 300px;
+    margin: 10px auto;
+    font-family: 'Oswald', sans-serif;
+
+    &__title {
+      margin: 30px auto;
+      font-size: 38px;
+      font-weight: 500;
+      line-height: 40px;
+      margin-left: -20px;
+      margin-bottom: 10px;
+    }
+  }
+  &__img {
+    margin-top: 30px;
+    &__picture {
+      max-height: 100%;
+      height: auto;
+      max-width: 100%;
+      width: auto;
+      border-radius: 10px;
+      box-shadow: 14px -7px 19px 3px rgba(0, 0, 0, 0.51);
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .body-desktop {
+    height: auto;
+    margin: 30px auto;
+    text-align: center;
+    &__text {
+      width: 400px;
+      margin-top: 70px;
+      &__title {
+        font-size: 50px;
+      }
+    }
+    &__img {
+      height: 500px;
+    }
+  }
+}

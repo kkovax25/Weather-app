@@ -112,7 +112,7 @@ class WeatherCard extends Component {
   render() {
     return (
       <div className='weather'>
-        <SearchBar onChange={this.handleInput} onClick={this.handleSubmit} />
+        <SearchBar placeholder='City' content='Show' onChange={this.handleInput} onClick={this.handleSubmit} />
         <div
           className={this.state.isLoaded ? 'weather-card' : 'weather-card-hide'}
         >
