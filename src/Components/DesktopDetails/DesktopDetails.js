@@ -9,7 +9,9 @@ class DesktopDetails extends Component {
         <h1 className='desktop-details__title'>{this.props.degree}</h1>
         <div className='desktop-details__cont'>
           <h2 className='desktop-details__location'>{this.props.location}</h2>
-          <h3 className='desktop-details__date'><Clock/></h3>
+          <h3 className='desktop-details__date'>
+            <Clock />
+          </h3>
         </div>
         <div className='desktop-details__weathercont'>
           <img
@@ -25,4 +27,3 @@ class DesktopDetails extends Component {
 }
 
 export default DesktopDetails;
-

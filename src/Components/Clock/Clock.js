@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
 
+let initialState = new Date().toLocaleString('en-US', {
+  day: 'numeric',
+  month: 'short',
+  hour: 'numeric',
+  minute: 'numeric',
+  weekday: 'short',
+});
 class Clock extends Component {
   constructor(props) {
     super(props);
@@ -8,6 +15,9 @@ class Clock extends Component {
     };
   }
   componentDidMount() {
+    this.setState({
+      time: initialState
+    });
     this.intervalID = setInterval(() => this.tick(), 1000);
   }
   componentWillUnmount() {
@@ -16,11 +26,11 @@ class Clock extends Component {
   tick() {
     this.setState({
       time: new Date().toLocaleString('en-US', {
-        day: "numeric",
-        month: "short",
+        day: 'numeric',
+        month: 'short',
         hour: 'numeric',
         minute: 'numeric',
-        weekday: "short",
+        weekday: 'short',
       })
     });
   }

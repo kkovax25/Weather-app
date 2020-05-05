@@ -3,18 +3,21 @@ import './DesktopSideBar.scss';
 import SearchBar from '../SearchBar/SearchBar';
 
 class DesktopSideBar extends Component {
-
   render() {
     return (
       <div className='desktop-sidebar'>
         <div className='desktop-sidebar-search'>
           <SearchBar
-          onChange={this.props.onChange}
+            onChange={this.props.onChange}
             onClick={this.props.onClick}
-            placeholder={'Another location'}
+            placeholder={this.props.placeholder}
             content={
               <div className='button-cont'>
-                <img className='desktop-sidebar-search__button' src='/img/desktop/search.svg' alt='t3'></img>
+                <img
+                  className='desktop-sidebar-search__button'
+                  src='/img/desktop/search.svg'
+                  alt='t3'
+                ></img>
               </div>
             }
           />

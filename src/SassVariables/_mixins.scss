@@ -111,3 +111,23 @@
     @include sunAndMoon(none, null, block, 0.9);
   }
 }
+
+$break-small: 768px;
+$break-medium: 992px;
+$break-large: 1200px;
+
+@mixin adjust-to($media) {
+  @if $media == handhelds {
+    @media only screen and (min-width: $break-small) {
+      @content;
+    }
+  } @else if $media == medium-screen {
+    @media only screen and (min-width: $break-medium) {
+      @content;
+    }
+  } @else if $media == big-screen {
+    @media only screen and (min-width: $break-large) {
+      @content;
+    }
+  }
+}

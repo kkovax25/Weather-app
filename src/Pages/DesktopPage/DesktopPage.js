@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './DesktopPage.scss';
 import DesktopDetails from '../../Components/DesktopDetails/DesktopDetails';
 import DesktopSideBar from '../../Components/DesktopSideBar/DesktopSideBar';
-const API_KEY =`${process.env.REACT_APP_API_KEY}`
+const API_KEY = `${process.env.REACT_APP_API_KEY}`;
 
 class DesktopPage extends Component {
   constructor(props) {
@@ -16,60 +16,67 @@ class DesktopPage extends Component {
       cloud: '',
       wind: '',
       condition: 'Cloudy',
-      isLoaded: false
+      isLoaded: false,
+      error: false,
+      placeholder: 'City'
     };
   }
-  getCity = async () => {
-    const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${this.state.lat}&lon=${this.state.lon}&units=metric&appid=${API_KEY}`;
-    const response = await fetch(url, {
-      method: 'GET',
-      headers: {
-        Accept: 'application/json'
-      }
-    });
-    const data = await response.json();
+  searchCity = async () => {
+    try {
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${this.state.place}&appid=${API_KEY}`;
+      const response = await fetch(url, {
+        method: 'GET',
+        headers: {
+          Accept: 'application/json'
+        }
+      });
+      const data = await response.json();
+      this.setState({
+        lat: data.coord.lat,
+        lon: data.coord.lon,
+        placeholder: 'City'
+      });
+    } catch (error) {
+      this.setState({
+        error: true,
+        placeholder: 'Incorrect location'
+      });
+    }
+  };
 
-    this.setState({
-      current: data.current.temp,
-      daily: data.daily,
-      hourly: data.hourly,
-      humidity: data.current.humidity,
-      cloud: data.current.clouds,
-      wind: data.current.wind_speed,
-      condition: data.current.weather[0].main
-    });
-    console.log(this.state);
+  getWeatherData = async () => {
+    try {
+      const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${this.state.lat}&lon=${this.state.lon}&units=metric&appid=${API_KEY}`;
+      const response = await fetch(url, {
+        method: 'GET',
+        headers: {
+          Accept: 'application/json'
+        }
+      });
+      const data = await response.json();
+
+      this.setState({
+        current: data.current.temp,
+        daily: data.daily,
+        hourly: data.hourly,
+        humidity: data.current.humidity,
+        cloud: data.current.clouds,
+        wind: data.current.wind_speed,
+        condition: data.current.weather[0].main,
+        isLoaded: true
+      });
+    } catch (error) {
+      this.setState({ isLoaded: false });
+    }
   };
 
   handleInput = event => {
     this.setState({ place: event.target.value });
-    console.log(this.state.place);
   };
 
-  handleSubmit = async e => {
-    e.preventDefault();
+  handleSubmit = async () => {
     await this.searchCity();
-    await this.getCity();
-    this.setState({ isLoaded: true });
-  };
-
-  searchCity = async () => {
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${this.state.place}&appid=${API_KEY}`;
-    const response = await fetch(url, {
-      method: 'GET',
-      headers: {
-        Accept: 'application/json'
-      }
-    });
-    const data = await response.json();
-    console.log(data);
-
-    this.setState({
-      lat: data.coord.lat,
-      lon: data.coord.lon
-    });
-    console.log(this.state.lat);
-    console.log(this.state.lon);
+    await this.getWeatherData();
   };
 
   render() {
@@ -80,7 +87,8 @@ class DesktopPage extends Component {
       wind,
       place,
       current,
-      condition
+      condition,
+      placeholder
     } = this.state;
     return (
       <div className='desktop-cont'>
@@ -92,15 +100,13 @@ class DesktopPage extends Component {
           />
         ) : null}
         <DesktopSideBar
+          placeholder={placeholder}
           onChange={this.handleInput}
           onClick={this.handleSubmit}
           cloud={isLoaded ? cloud + '%' : '0%'}
           humidity={isLoaded ? humidity + '%' : '0%'}
           wind={isLoaded ? Math.round(wind * 3.6) + 'km/h' : '0km/h'}
         />
-        {/* <div className='testes'>
-          <p>Please use the mobile version from the <a href='/'>homepage</a></p>
-        </div> */}
       </div>
     );
   }

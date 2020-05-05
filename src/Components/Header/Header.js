@@ -5,7 +5,7 @@ class Header extends Component {
   render() {
     return (
       <div className='header-cont'>
-         <div className='header-cont__title'>
+        <div className='header-cont__title'>
           <h1 className='header-cont__title__h1'>
             The
             <br />
@@ -13,8 +13,12 @@ class Header extends Component {
             <br />
             Forecast
           </h1>
-        </div> 
-        <img src='/img/header.jpg' alt='clouds' className='header-cont__picture'/>
+        </div>
+        <img
+          src='/img/header.jpg'
+          alt='clouds'
+          className='header-cont__picture'
+        />
       </div>
     );
   }
