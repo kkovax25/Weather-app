@@ -19,7 +19,7 @@ class WeatherCard extends Component {
     };
   }
   getCity = async () => {
-    const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${this.state.lat}&lon=${this.state.lon}&units=metric&appid=aa9bd3ee50ab41fefb2d992915c5aac5`;
+    const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${this.state.lat}&lon=${this.state.lon}&units=metric&appid=${API_KEY}`;
     const response = await fetch(url, {
       method: 'GET',
       headers: {

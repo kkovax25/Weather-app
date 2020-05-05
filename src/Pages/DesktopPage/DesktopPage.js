@@ -54,7 +54,7 @@ class DesktopPage extends Component {
   };
 
   searchCity = async () => {
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${this.state.place}&appid=aa9bd3ee50ab41fefb2d992915c5aac5&units=metric`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${this.state.place}&appid=${API_KEY}`;
     const response = await fetch(url, {
       method: 'GET',
       headers: {
