@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './WeatherCard.scss';
 import DailyTable from '../DailyTable/DailyTable';
 import SearchBar from '../SearchBar/SearchBar';
+const API_KEY =`${process.env.REACT_APP_API_KEY}`
 
 class WeatherCard extends Component {
   constructor(props) {
@@ -46,7 +47,7 @@ class WeatherCard extends Component {
   };
 
   searchCity = async () => {
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${this.state.place}&appid=aa9bd3ee50ab41fefb2d992915c5aac5&units=metric`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${this.state.place}&appid=${API_KEY}`;
     const response = await fetch(url, {
       method: 'GET',
       headers: {
@@ -112,7 +113,12 @@ class WeatherCard extends Component {
   render() {
     return (
       <div className='weather'>
-        <SearchBar placeholder='City' content='Show' onChange={this.handleInput} onClick={this.handleSubmit} />
+        <SearchBar
+          placeholder='City'
+          content='Show'
+          onChange={this.handleInput}
+          onClick={this.handleSubmit}
+        />
         <div
           className={this.state.isLoaded ? 'weather-card' : 'weather-card-hide'}
         >

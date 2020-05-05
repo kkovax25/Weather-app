@@ -2,24 +2,25 @@ import React, { Component } from 'react';
 import './DesktopPage.scss';
 import DesktopDetails from '../../Components/DesktopDetails/DesktopDetails';
 import DesktopSideBar from '../../Components/DesktopSideBar/DesktopSideBar';
+const API_KEY =`${process.env.REACT_APP_API_KEY}`
 
 class DesktopPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      current: '17',
-      place: 'budapest',
+      current: '',
+      place: '',
       lat: '',
       lon: '',
       humidity: '',
       cloud: '',
       wind: '',
       condition: 'Cloudy',
-      isLoaded: true
+      isLoaded: false
     };
   }
   getCity = async () => {
-    const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${this.state.lat}&lon=${this.state.lon}&units=metric&appid=aa9bd3ee50ab41fefb2d992915c5aac5`;
+    const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${this.state.lat}&lon=${this.state.lon}&units=metric&appid=${API_KEY}`;
     const response = await fetch(url, {
       method: 'GET',
       headers: {
