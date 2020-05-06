@@ -22,10 +22,7 @@ class NavBar extends Component {
         <a href='/' className='logo'>
           Weather Forecast
         </a>
-        <ul
-          className={this.state.isActive ? 'main-nav active' : 'main-nav'}
-          id='js-menu'
-        >
+        <ul className={this.state.isActive ? 'main-nav active' : 'main-nav'}>
           <li>
             <a href='/' className='nav-links'>
               Home
@@ -37,13 +34,8 @@ class NavBar extends Component {
             </a>
           </li>
           <li>
-            <a href='/' className='nav-links'>
+            <a href='http://kovacskrisztian.com/' className='nav-links'>
               About me
-            </a>
-          </li>
-          <li>
-            <a href='/' className='nav-links'>
-              Contact Us
             </a>
           </li>
         </ul>

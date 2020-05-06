@@ -1,13 +1,20 @@
+@import '../../../SassVariables/mixins';
 .body-cont {
   height: auto;
+  @include adjust-to(handhelds) {
+    display: flex;
+    justify-content: space-evenly;
+  }
   &__maintext {
     color: white;
     opacity: 0.7;
     width: 300px;
     margin: 10px auto;
     font-family: 'Oswald', sans-serif;
-    &__arrow {
-      display: none;
+    @include adjust-to(handhelds) {
+      height: 300px;
+      width: 400px;
+      margin: 0;
     }
     &__title {
       margin: 30px auto;
@@ -16,56 +23,36 @@
       line-height: 40px;
       margin-left: -20px;
       margin-bottom: 10px;
+      @include adjust-to(handhelds) {
+        display: flex;
+        justify-content: space-between;
+        margin-left: -10px;
+        font-size: 50px;
+      }
     }
     &__desc {
       font-size: 20px;
       font-weight: 400;
       line-height: 21px;
       text-align: justify;
-    }
-  }
-
-  .weather-card {
-    margin-top: 20px;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .body-cont {
-    display: flex;
-    justify-content: space-evenly;
-    height: auto;
-
-    &__maintext {
-      height: 300px;
-      width: 400px;
-      margin: 0;
-
-      &__title {
-        display: flex;
-        justify-content: space-between;
-        margin-left: -10px;
-        font-size: 50px;
-      }
-      &__desc {
+      @include adjust-to(handhelds) {
         margin-top: 30px;
         margin-left: 10px;
         font-size: 25px;
       }
-      &__arrow {
-        display: none;
-        margin-top: -55px;
-        margin-right: -135px;
-        transform: rotate(50deg);
-        width: 350px;
-      }
     }
-    &__card {
+  }
+  &__card {
+    width: auto;
+    @include adjust-to(handhelds) {
       width: 350px;
       .weather {
         display: flex;
         flex-direction: column;
       }
     }
+  }
+  .weather-card {
+    margin-top: 20px;
   }
 }

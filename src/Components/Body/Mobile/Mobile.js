@@ -9,11 +9,6 @@ class Mobile extends Component {
         <div className='body-cont__maintext'>
           <h2 className='body-cont__maintext__title'>
             Get the recent weather data for mobile
-            <img
-              className='body-cont__maintext__arrow'
-              src='/img/arrow.svg'
-              alt='asd'
-            />
           </h2>
           <p className='body-cont__maintext__desc'>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

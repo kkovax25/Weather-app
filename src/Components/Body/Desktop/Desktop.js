@@ -11,11 +11,13 @@ class Desktop extends Component {
           </h2>
         </div>
         <div className='body-desktop__img'>
+          <a href="/desktop">
           <img
             className='body-desktop__img__picture'
             src='/img/desktop.png'
             alt='asd'
           />
+          </a>
         </div>
       </div>
     );

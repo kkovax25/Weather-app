@@ -16,8 +16,8 @@ class DesktopDetails extends Component {
         <div className='desktop-details__weathercont'>
           <img
             className='desktop-details__icon'
-            src='/img/desktop/cloud.svg'
-            alt='test'
+            src={this.props.src}
+            alt='icon'
           />
           <h3 className='desktop-details__condition'>{this.props.condition}</h3>
         </div>

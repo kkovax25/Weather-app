@@ -1,3 +1,4 @@
+@import './variables';
 @mixin sunAndMoon($sun, $sunOpacity, $moon, $moonOpacity) {
   .weather-card {
     &__sun {
@@ -112,11 +113,7 @@
   }
 }
 
-$break-small: 768px;
-$break-medium: 992px;
-$break-large: 1200px;
-
-@mixin adjust-to($media) {
+@mixin adjust-to($media, $px: 1700px) {
   @if $media == handhelds {
     @media only screen and (min-width: $break-small) {
       @content;
@@ -127,6 +124,10 @@ $break-large: 1200px;
     }
   } @else if $media == big-screen {
     @media only screen and (min-width: $break-large) {
+      @content;
+    }
+  } @else if $media == custom {
+    @media only screen and (min-width: $px) {
       @content;
     }
   }

@@ -159,7 +159,7 @@ class WeatherCard extends Component {
                   </tr>
                 </thead>
                 <tbody>
-                  {this.state.daily.map(data => (
+                  {this.state.daily.slice(1, 8).map(data => (
                     <DailyTable
                       day={this.unixConverter(data.dt)}
                       maxC={Math.round(data.temp.max) + '°C'}
