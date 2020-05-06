@@ -1,0 +1,48 @@
+@import '../../../SassVariables/mixins';
+
+.body-desktop {
+  margin-top: 50px;
+  height: 350px;
+  @include adjust-to(handhelds) {
+    height: auto;
+    margin: 30px auto;
+    text-align: center;
+  }
+  &__text {
+    color: white;
+    opacity: 0.7;
+    width: 300px;
+    margin: 10px auto;
+    font-family: 'Oswald', sans-serif;
+    @include adjust-to(handhelds) {
+      width: 400px;
+      margin-top: 70px;
+    }
+
+    &__title {
+      margin: 30px auto;
+      font-size: 38px;
+      font-weight: 500;
+      line-height: 40px;
+      margin-left: -20px;
+      margin-bottom: 10px;
+      @include adjust-to(handhelds) {
+        font-size: 50px;
+      }
+    }
+  }
+  &__img {
+    margin-top: 30px;
+    @include adjust-to(handhelds) {
+      height: 500px;
+    }
+    &__picture {
+      max-height: 100%;
+      height: auto;
+      max-width: 100%;
+      width: auto;
+      border-radius: 10px;
+      box-shadow: 14px -7px 19px 3px rgba(0, 0, 0, 0.51);
+    }
+  }
+}

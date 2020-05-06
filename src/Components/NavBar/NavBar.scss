@@ -1,13 +1,27 @@
 @import '../../SassVariables/variables';
+@import '../../SassVariables/mixins';
 
 .navbar {
   font-size: 18px;
   background: $sky-gradient-12;
   padding-bottom: 10px;
+  @include adjust-to(handhelds) {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 0;
+    height: 70px;
+    align-items: center;
+  }
 }
 .main-nav {
   list-style-type: none;
   display: none;
+  @include adjust-to(handhelds) {
+    display: flex;
+    margin-right: 30px;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
 }
 
 .nav-links,
@@ -19,6 +33,15 @@
 .main-nav li {
   text-align: center;
   margin: 15px auto;
+  @include adjust-to(handhelds) {
+    margin: 0;
+  }
+}
+
+@include adjust-to(handhelds) {
+  .nav-links {
+    margin-left: 40px;
+  }
 }
 
 .logo {
@@ -26,6 +49,9 @@
   font-size: 22px;
   margin-top: 10px;
   margin-left: 20px;
+  @include adjust-to(handhelds) {
+    margin-top: 0;
+  }
 }
 
 .navbar-toggle {
@@ -35,46 +61,17 @@
   cursor: pointer;
   color: rgba(255, 255, 255, 0.8);
   font-size: 24px;
-}
-
-.active {
-  display: block;
-}
-
-@media screen and (min-width: 768px) {
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    padding-bottom: 0;
-    height: 70px;
-    align-items: center;
-  }
-
-  .main-nav {
-    display: flex;
-    margin-right: 30px;
-    flex-direction: row;
-    justify-content: flex-end;
-  }
-
-  .main-nav li {
-    margin: 0;
-  }
-
-  .nav-links {
-    margin-left: 40px;
-  }
-
-  .logo {
-    margin-top: 0;
-  }
-
-  .navbar-toggle {
+  @include adjust-to(handhelds) {
     display: none;
   }
+}
 
+@include adjust-to(handhelds) {
   .logo:hover,
   .nav-links:hover {
     color: rgba(255, 255, 255, 1);
   }
+}
+.active {
+  display: block;
 }

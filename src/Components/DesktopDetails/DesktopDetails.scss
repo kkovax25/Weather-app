@@ -1,0 +1,67 @@
+@import '../../SassVariables/mixins';
+
+.desktop-details {
+  margin-top: -30px;
+  grid-column: 1/6;
+  grid-row: 1/2;
+  color: white;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Oxygen', sans-serif;
+  text-transform: capitalize;
+  @include adjust-to(handhelds) {
+    grid-column: 2/4;
+    grid-row: 1/2;
+    margin-left: 40px;
+  }
+  @include adjust-to(medium-screen) {
+    grid-column: 2/3;
+    grid-row: 3/4;
+    flex-direction: row;
+    margin: 0 0 90px 0;
+  }
+  @include adjust-to(custom){
+    grid-column: 3/3
+  }
+
+  &__title {
+    font-size: 105px;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: -20px;
+    margin-left: 35px;
+    @include adjust-to(handhelds) {
+      margin-left: 55px;
+    }
+  }
+  &__cont {
+    margin: 0 auto;
+    text-align: center;
+  }
+  &__location {
+    min-width: 200px;
+    max-width: 250px;
+    font-size: 55px;
+    overflow: scroll;
+  }
+  &__date,
+  &__condition {
+    font-size: 15px;
+  }
+  &__weathercont {
+    text-align: center;
+    display: none;
+    @include adjust-to(handhelds) {
+      display: block;
+    }
+    @include adjust-to(medium-screen) {
+      margin-left: 10px;
+    }
+  }
+  &__icon {
+    margin-bottom: -25px;
+    height: 65px;
+  }
+}

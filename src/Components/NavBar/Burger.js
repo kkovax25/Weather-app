@@ -3,7 +3,7 @@ import Burger from 'react-css-burger';
 
 class BurgerMenu extends Component {
   state = {
-    active: false,
+    active: false
   };
 
   render() {
@@ -11,8 +11,8 @@ class BurgerMenu extends Component {
       <Burger
         onClick={() => this.setState({ active: !this.state.active })}
         active={this.state.active}
-        burger="slider"
-        color="white"
+        burger='slider'
+        color='white'
         scale={0.8}
         marginTop='8px'
       />
@@ -20,4 +20,4 @@ class BurgerMenu extends Component {
   }
 }
 
-export default BurgerMenu
+export default BurgerMenu;

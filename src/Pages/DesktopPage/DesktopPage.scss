@@ -1,0 +1,13 @@
+.desktop-cont {
+  height: 100vh;
+  min-height: 800px;
+  width: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('./desktopBg.jpg');
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-auto-rows: minmax(100px, auto);
+}
+

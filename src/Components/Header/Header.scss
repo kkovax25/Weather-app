@@ -1,9 +1,13 @@
-//Mobile
+@import '../../SassVariables/mixins';
 .header-cont {
   position: relative;
   height: auto;
   margin-top: 20px;
-
+  @include adjust-to(handhelds) {
+    height: 500px;
+    margin: 30px auto;
+    text-align: center;
+  }
   &__title {
     position: absolute;
     left: 0;
@@ -12,7 +16,15 @@
     font-family: 'Oswald', sans-serif;
     color: white;
     opacity: 0.7;
-
+    @include adjust-to(handhelds) {
+      top: 60px;
+      left: 140px;
+      border: 5px solid white;
+      text-align: left;
+    }
+    @include adjust-to(custom){
+      left: 650px
+    }
     &__h1 {
       margin-top: 5px;
       margin-bottom: 30px;
@@ -33,22 +45,5 @@
     -webkit-box-shadow: 14px -7px 19px 3px rgba(0, 0, 0, 0.51);
     -moz-box-shadow: 14px -7px 19px 3px rgba(0, 0, 0, 0.51);
     box-shadow: 14px -7px 19px 3px rgba(0, 0, 0, 0.51);
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .header-cont {
-    height: 500px;
-    margin: 30px auto;
-    text-align: center;
-
-    &__title {
-      position: absolute;
-      top: 60px;
-      left: 140px;
-      width: 350px;
-      border: 5px solid white;
-      text-align: left;
-    }
   }
 }
