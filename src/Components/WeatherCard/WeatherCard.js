@@ -107,14 +107,14 @@ class WeatherCard extends Component {
                 {this.state.place}
               </p>
             </div>
-            <img src='/img/sun.png' alt='sun' className='weather-card__sun' />
+            <img src='./img/sun.png' alt='sun' className='weather-card__sun' />
             <img
-              src='/img/moon.png'
+              src='./img/moon.png'
               alt='moon'
               className='weather-card__moon'
             />
             <img
-              src='/img/cloud2.png'
+              src='./img/cloud2.png'
               alt='cloud'
               className='weather-card__cloud'
             />

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.scss';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { HashRouter as Router, Route } from 'react-router-dom';
 import DesktopPage from './Pages/DesktopPage/DesktopPage';
 import LandingPage from './Pages/LandingPage/LandingPage';
 
@@ -9,7 +9,7 @@ class App extends Component {
     return (
       <Router>
         <Route path='/' exact component={LandingPage} />
-        <Route path='/desktop' exact component={DesktopPage} />
+        <Route path='/desktop' component={DesktopPage} />
       </Router>
     );
   }

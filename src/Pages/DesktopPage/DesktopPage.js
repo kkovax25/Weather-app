@@ -96,7 +96,7 @@ class DesktopPage extends Component {
           <DesktopDetails
             degree={Math.round(current) + '°'}
             location={isLoaded ? place : null}
-            src={`/img/desktop/conditions/${condition}.svg`}
+            src={`./img/desktop/conditions/${condition}.svg`}
             condition={isLoaded ? condition : null}
           />
         ) : null}

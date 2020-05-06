@@ -29,7 +29,7 @@ class NavBar extends Component {
             </a>
           </li>
           <li>
-            <a href='/desktop' className='nav-links'>
+            <a href='/Weather-app/#/desktop' className='nav-links'>
               Desktop
             </a>
           </li>

@@ -15,7 +15,7 @@ class DesktopSideBar extends Component {
               <div className='button-cont'>
                 <img
                   className='desktop-sidebar-search__button'
-                  src='/img/desktop/search.svg'
+                  src='./img/desktop/search.svg'
                   alt='t3'
                 ></img>
               </div>

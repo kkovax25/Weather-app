@@ -15,7 +15,7 @@ class Header extends Component {
           </h1>
         </div>
         <img
-          src='/img/header.jpg'
+          src='./img/header.jpg'
           alt='clouds'
           className='header-cont__picture'
         />
